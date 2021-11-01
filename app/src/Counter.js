@@ -24,6 +24,10 @@ class Counter extends React.Component {
         )
     }
 
+    componentWillUnmount() {
+        clearInterval(this.interval_id);
+    }
+
 
     render() {
         return (
