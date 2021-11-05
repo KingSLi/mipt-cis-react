@@ -5,6 +5,7 @@ import { Layout, Menu } from 'antd';
 import { Link, Route, Switch, withRouter } from 'react-router-dom';
 import { MainPage } from './components/MainPage';
 import { AboutPage } from './components/AboutPage';
+import RecordPage from './components/RecordPage';
 
 const { Header, Footer, Content } = Layout;
 
@@ -21,7 +22,10 @@ class App extends Component {
         break;
       case '/about':
         selectedKeys = ['about']
-        break;    
+        break;
+      case '/record':
+        selectedKeys = ['record']
+        break;  
       default:
         throw new Error('Unexpected page!')
     }
@@ -35,6 +39,9 @@ class App extends Component {
             <Menu.Item key="about">
               <Link to='/about'>О нас</Link>
             </Menu.Item>
+            <Menu.Item key="record">
+              <Link to='/record'>Запись</Link>
+            </Menu.Item>
           </Menu>
         </Header>
         <Content >
@@ -45,6 +52,9 @@ class App extends Component {
               </Route>
               <Route exact path='/about'>
                 <AboutPage />
+              </Route>
+              <Route exact path='/record'>
+                <RecordPage />
               </Route>
             </Switch>
           </div>

@@ -7,3 +7,11 @@
     display: flex;
     padding: 24px;
 }
+
+.record-container {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: left;
+    flex-direction: column;
+    justify-content: left;
+}
