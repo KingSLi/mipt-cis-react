@@ -24,6 +24,14 @@ export class RecordPage extends Component {
       console.log('Failed:', errorInfo);
     };
 
+    const default_time = () => {
+      let def = moment();
+      def.set({second:0,millisecond:0})
+      def.add((def.minutes() < 30 ? 30 : 60) - def.minutes(), 'minute')
+      console.log(`def`, def)
+      return def;
+    };
+
     return (
       <div class='record-container'>
         <Typography.Title >Записаться на стирку!</Typography.Title>
@@ -32,7 +40,6 @@ export class RecordPage extends Component {
           name="basic"
           labelCol={{ span: 25 }}
           wrapperCol={{ span: 25 }}
-          initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
@@ -56,6 +63,9 @@ export class RecordPage extends Component {
                 showToday={false}
                 showNow={false}
                 disabledDate={(current) => { return current && current < moment().startOf('day') }}
+                allowClear={false}
+                inputReadOnly={true}
+                defaultValue={() => {return default_time()}}
                 showTime={{ 
                     minuteStep: 30 
                 }}           
