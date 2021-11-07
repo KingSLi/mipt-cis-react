@@ -1,0 +1,17 @@
+.main-container {
+    background: #fff;
+    margin: 24px;
+    margin-top: 88px;
+    flex: 1 1 auto;
+    flex-direction: column;
+    display: flex;
+    padding: 24px;
+}
+
+.record-container {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: left;
+    flex-direction: column;
+    justify-content: left;
+}
